@@ -1,0 +1,26 @@
+#!/bin/bash -x
+
+HAVE=100
+WIN=1
+LOSS=0
+NUMBER_OF_TIMES_WON=0
+NUMBER_OF_TIMES_LOST=0
+while [ $HAVE -le 200 -a $HAVE -ne 0 ]
+do
+	gambling=$((RANDOM%2))
+	if [ $WIN -eq $gambling ]
+	then
+		NUMBER_OF_TIMES_WON=$(( $NUMBER_OF_TIMES_WON + 1 ))
+		HAVE=$(( $HAVE + 1 ))
+	else
+		NUMBER_OF_TIMES_LOST=$(( $NUMBER_OF_TIMES_LOST + 1 ))
+		HAVE=$(( $HAVE -1 ))
+	fi
+done
+
+if [ $HAVE -ge 200 ]
+then
+	echo WE WON BY $NUMBER_OF_TIMES_WON BETS AGAINST $NUMBER_OF_TIMES_LOST GAMBLED LOSING BETS
+else
+	echo WE LOST BY $NUMBER_OF_TIMES_LOST BETS AGAINST $NUMBER_OF_TIMES_WON GAMBLED WINNING BETS
+fi
