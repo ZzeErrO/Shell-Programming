@@ -37,26 +37,16 @@ echo ${b[@]}
 
 
 function check() {
-	a=$1
-	b=$2
-	c=$3
-	d=$4
-	e=$5
-	f=$6
-	g=$7
-	h=$8
-	i=$9
-	j="$10"
-	k="$11"
-	l="$12"
-	for i in (1 2 3 4 5 6):
-		if [ a -ne l ]
-		then
-			echo not palindrome
-		elif [ $b -ne $k ]
-		fi
-
+	arr=("$1")
+	#v=$1
+	#w=$2
+	#msg="$1"
+	echo ${arr[@]}
+	#for i in "${arr[@]}"
+	#do
+	#	echo "$msg $i"
+	#done
 }
 
-result=$( check "${a[@]}" "${b[@]}" )
+result=$( check "${a[@]}" "${b[@]}")
 echo $result
