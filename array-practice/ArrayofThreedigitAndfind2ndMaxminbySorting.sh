@@ -2,20 +2,20 @@
 
 for (( count=0; count<10; count++ ))
 do
-a[$count]=$((RANDOM%1000+100))
+a[$count]=$((RANDOM%900+100))
 done
 
 c=0
 while [ $c -lt 10 ]
 do
 
-	for (( x=0; x<10; x++ ))
+	for (( x=0; x<9; x++ ))
 	do
-		if [ ${a[x]} -gt ${a[x+1]} ]
+		if [ ${a[$x]} -gt ${a[$x+1]} ]
 		then
-			i=${a[x+1]}
-			a[x+1]=${a[x]}
-			a[x]=$i
+			i=${a[$x+1]}
+			a[$(($x+1))]=${a[$x]}
+			a[$x]=$i
 		fi
 	done
 	c=$(( $c + 1 ))

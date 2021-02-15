@@ -1,20 +1,22 @@
 #!/bin/bash -x
 
 read -p "Think of a number between 1 to 100: " x
-
-n=$x
-
-while [ $n / 2 -ne $x ]
+a=100
+b=0
+count=1
+n=$(( ($a + $b) / 2 ))
+while [ $n -ne $x ]
 do
-	if [ $(($n / 2)) -lt $x ]
+	if [ $n -gt $x ]
 	then
-		n=$(( $n / 2 ))
-		echo $n
-	elif [ $(($n / 2)) -gt $x ]
+		a=$n
+		n=$(( ($a + $b) / 2 ))
+	elif [ $n -lt $x ]
 	then
-		n=$(( $n / 2 ))
-		echo $n
-	else
-		echo $n
+		b=$n
+		n=$(( ($a + $b) / 2 ))
 	fi
+	count=$(( $count + 1 ))
 done
+
+echo MAGIC NUMBER REACHED IN $count
